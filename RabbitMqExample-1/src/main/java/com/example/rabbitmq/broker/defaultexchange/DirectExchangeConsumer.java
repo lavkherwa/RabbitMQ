@@ -13,9 +13,10 @@ import com.rabbitmq.client.DeliverCallback;
 public class DirectExchangeConsumer {
 
 	private final RabbitMqConnectionFactory rabbitMqConnectionFactory;
-
 	Logger LOGGER = LoggerFactory.getLogger(DirectExchangePublisher.class);
 
+	private final static String TASK_QUEUE_NAME = "TestQueue";
+	
 	public DirectExchangeConsumer(RabbitMqConnectionFactory rabbitMqConnectionFactory) {
 		this.rabbitMqConnectionFactory = rabbitMqConnectionFactory;
 	}
@@ -25,7 +26,6 @@ public class DirectExchangeConsumer {
 		Connection connection = rabbitMqConnectionFactory.getConnectionFactory().newConnection();
 		Channel channel = connection.createChannel();
 
-		String TASK_QUEUE_NAME = "TestQueue";
 
 		channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
 		channel.basicQos(1);

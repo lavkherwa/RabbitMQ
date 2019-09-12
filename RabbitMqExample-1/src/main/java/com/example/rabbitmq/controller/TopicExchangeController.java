@@ -22,13 +22,13 @@ public class TopicExchangeController {
 	}
 
 	@GetMapping("/publish")
-	public void publish(@RequestParam String bindingKey, @RequestParam String message) throws Exception {
-		publisher.publishMessage(bindingKey, message);
+	public void publish(@RequestParam String routingKey, @RequestParam String message) throws Exception {
+		publisher.publishMessage(routingKey, message);
 	}
 
-//	@GetMapping("/consume")
-//	public void consume() throws Exception {
-//		consumer.consumeMessage();
-//	}
+	@GetMapping("/consume")
+	public void consume() throws Exception {
+		consumer.consumeMessage();
+	}
 
 }

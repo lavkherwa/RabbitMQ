@@ -18,8 +18,9 @@ import com.rabbitmq.client.Connection;
 public class DirectExchangePublisher {
 
 	private final RabbitMqConnectionFactory rabbitMqConnectionFactory;
-
 	Logger LOGGER = LoggerFactory.getLogger(DirectExchangePublisher.class);
+
+	private final static String TASK_QUEUE_NAME = "TestQueue";
 
 	public DirectExchangePublisher(RabbitMqConnectionFactory rabbitMqConnectionFactory) {
 		this.rabbitMqConnectionFactory = rabbitMqConnectionFactory;
@@ -29,7 +30,7 @@ public class DirectExchangePublisher {
 		/* Note: connection and channel classes are auto closable */
 		try (Connection connection = rabbitMqConnectionFactory.getConnectionFactory().newConnection()) {
 			try (Channel channel = connection.createChannel()) {
-				String TASK_QUEUE_NAME = "TestQueue";
+
 				for (int i = 0; i < 10; i++) {
 					String message = "This is message: #" + (i + 1);
 					/* Publish all the messages into the Queue */

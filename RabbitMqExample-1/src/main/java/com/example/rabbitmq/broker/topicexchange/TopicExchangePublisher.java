@@ -8,6 +8,10 @@ import com.example.rabbitmq.config.RabbitMqConnectionFactory;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
+/*- More Details 
+ *  https://www.rabbitmq.com/tutorials/tutorial-five-java.html
+ */
+
 @Component
 public class TopicExchangePublisher {
 
