@@ -5,11 +5,11 @@
 	  
 RabbitMQ is based on AMQP [Advanced messaging queuing protocol]
 
-Unlike JMS which has just 
-(Publisher) -> [Message Queue] -> (Consumer)
+Unlike JMS which has just<br/>
+**(Publisher) -> [Message Queue] -> (Consumer)**
 
-RabbitMQ has a exchange in between of publisher and message Queue
-(Publisher) -> [Exchange] -> [Message Queue] -> (consumer)
+RabbitMQ has a exchange in between of publisher and message Queue<br/>
+**(Publisher) -> [Exchange] -> [Message Queue] -> (consumer)**
 
 AMPQ has different kind of exchanges, common one's are
  1. **FanOut** - Messages will go to all queues binded to exchange
