@@ -31,17 +31,17 @@ opportunities for scaling.
 	
 ## Installation Information on MAC Machine
 	   
-1. Install BREW first if not available already 
+1. Install BREW first if not available already<br/>
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-2. Update the brew to latest
+2. Update the brew to latest<br/>
     brew update
 
-3. Install RabbitMQ using brew
+3. Install RabbitMQ using brew<br/>
     brew install rabbitmq
 
-4. Choose when to launch RabbitMq
-    a. brew services start rabbitmq   (start rabbitMQ now and restart at login)
+4. Choose when to launch RabbitMq<br/>
+    a. brew services start rabbitmq   (start rabbitMQ now and restart at login)<br/>
     b. rabbitmq-server                (Manual)
 
 
