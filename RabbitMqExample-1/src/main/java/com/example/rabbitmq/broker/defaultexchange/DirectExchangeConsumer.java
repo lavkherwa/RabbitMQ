@@ -10,13 +10,13 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DeliverCallback;
 
 @Component
-public class Consumer {
+public class DirectExchangeConsumer {
 
 	private final RabbitMqConnectionFactory rabbitMqConnectionFactory;
 
-	Logger LOGGER = LoggerFactory.getLogger(Publisher.class);
+	Logger LOGGER = LoggerFactory.getLogger(DirectExchangePublisher.class);
 
-	public Consumer(RabbitMqConnectionFactory rabbitMqConnectionFactory) {
+	public DirectExchangeConsumer(RabbitMqConnectionFactory rabbitMqConnectionFactory) {
 		this.rabbitMqConnectionFactory = rabbitMqConnectionFactory;
 	}
 
@@ -32,9 +32,9 @@ public class Consumer {
 
 		DeliverCallback deliverCallback = (consumerTag, delivery) -> {
 			String message = new String(delivery.getBody(), "UTF-8");
-			System.out.println("Message " + message + " is consumed");
 			try {
-				// do any work with the message
+				// Do your work with the message
+				LOGGER.info("Message " + message + " is consumed");
 			} finally {
 				channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
 			}

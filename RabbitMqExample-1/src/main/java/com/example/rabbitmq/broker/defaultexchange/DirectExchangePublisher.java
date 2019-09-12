@@ -15,13 +15,13 @@ import com.rabbitmq.client.Connection;
  */
 
 @Component
-public class Publisher {
+public class DirectExchangePublisher {
 
 	private final RabbitMqConnectionFactory rabbitMqConnectionFactory;
 
-	Logger LOGGER = LoggerFactory.getLogger(Publisher.class);
+	Logger LOGGER = LoggerFactory.getLogger(DirectExchangePublisher.class);
 
-	public Publisher(RabbitMqConnectionFactory rabbitMqConnectionFactory) {
+	public DirectExchangePublisher(RabbitMqConnectionFactory rabbitMqConnectionFactory) {
 		this.rabbitMqConnectionFactory = rabbitMqConnectionFactory;
 	}
 
