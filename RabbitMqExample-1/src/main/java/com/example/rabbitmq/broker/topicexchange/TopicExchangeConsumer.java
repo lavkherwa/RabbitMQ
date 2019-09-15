@@ -35,7 +35,18 @@ public class TopicExchangeConsumer {
 		channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, QUEUE_BINDING_KEY);
 
 		channel.queueDeclare(QUEUE_NAME, true, false, false, null);
-		channel.basicQos(1);
+
+		/*- Per consumer limit for picking unAck messages from queue at once 
+		 * 
+		 *  This is useful when you have to do some CPU intensive operation with
+		 *  the received message and it will require heavy resources and only few 
+		 *  messages can be served by the underline service at once.
+		 * 
+		 *  In below case we are only picking one message from the Queue to be
+		 *  processed at once
+		 */
+		channel.basicQos(1, false);
+		// channel.basicQos(10, true); // Per channel limit
 
 		DeliverCallback deliverCallback = (consumerTag, delivery) -> {
 			String message = new String(delivery.getBody(), "UTF-8");
